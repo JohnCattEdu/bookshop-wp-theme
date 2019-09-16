@@ -1,0 +1,17 @@
+.tabber {
+    .tab-list {
+        @apply -mx-4 -mt-4 mb-2;
+
+        .tab-btn {
+            @apply px-4 py-3 border-solid border-transparent border-b-2 text-gray-700;
+
+            &.--active {
+                @apply border-gray-800 text-gray-800 font-semibold;
+            }
+
+            &:focus {
+                @apply outline-none;
+            }
+        }
+    }
+}

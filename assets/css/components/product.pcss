@@ -1,0 +1,98 @@
+.product {
+    .top {
+        @apply flex flex-col;
+
+        @screen md {
+            @apply flex-row;
+        }
+
+        .image-container {
+            @apply .w-1/2 mx-auto mb-4;
+
+            @screen md {
+                @apply .w-1/4 mb-0;
+            }
+
+            img {
+                @apply .rounded w-full;
+            }
+        }
+
+        .info {
+            @apply w-full flex flex-col justify-start;
+
+            @screen md {
+                @apply px-6 w-2/3;
+            }
+
+            .title {
+                @apply text-5xl font-display text-gray-900 leading-tighter tracking-tight font-bold mb-2;
+            }
+
+            .author {
+                @apply text-xl text-gray-800;
+            }
+
+            .add-to-cart {
+                @apply flex mt-6;
+
+                .buy {
+                    @apply inline-block px-4 py-2 bg-brand-500 rounded text-lg text-gray-100 flex-1;
+                    transition: all .2s;
+
+                    &.--working {
+                        @apply bg-accent-500;
+                    }
+
+                    @screen md {
+                        @apply flex-none;
+                    }
+
+                    .separator {
+                        @apply mx-1;
+                    }
+                }
+
+                .quantity-stepper {
+                    @apply ml-2;
+                }
+            }
+
+            .description {
+                @apply .my-6 text-gray-900;
+
+                p:not(:last-of-type) {
+                    @apply mb-2;
+                }
+            }
+        }
+    }
+
+    .info-table {
+        @apply flex flex-row flex-wrap;
+
+        .tidbit {
+            @apply w-1/2 mb-2;
+
+            @screen md {
+                @apply w-auto mb-0;
+
+                &:not(:last-of-type) {
+                    @apply mr-6;
+                }
+            }
+
+            .label {
+                @apply text-sm text-gray-700;
+            }
+
+            .value {
+                @apply text-gray-900;
+            }
+        }
+    }
+}
+
+.product-info {
+    @apply text-gray-900;
+}

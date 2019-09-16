@@ -1,0 +1,7 @@
+{% extends 'layouts/main.twig' %}
+
+{% block content %}
+    {% include 'components/items.twig' with {
+        items: products,
+    } %}
+{% endblock %}

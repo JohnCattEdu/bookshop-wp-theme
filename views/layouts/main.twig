@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/style.css">
+
+    {% block head %}{% endblock head %}
+
+    {% if title is defined and title is not empty %}
+        <title>{{ title }} - {{ site.name }}</title>
+    {% else %}
+        <title>{{ site.name }}</title>
+    {% endif %}
+
+    {{ function('wp_head') }}
+</head>
+
+<body class="preload">
+    <div id="app">
+        {% include 'components/header.twig' %}
+
+        <div class="page-wrapper container">
+            {% if block('preContent') is defined and block('preContent') != '' %}
+                <div class="container pre-content-wrapper">
+                    {{ block('preContent') }}
+                </div>
+            {% endif %}
+
+            <div class="container"> {# IF SIDEBAR ADD --sidebar CLASS #}
+                {% block content %}{% endblock content %}
+            </div>
+
+            {% if block('sidebar') is defined and block('sidebar') != '' %}
+                <div class="sidebar-wrapper">
+                    <div class="sidebar">
+                        {{ block('sidebar') }}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+        <toaster />
+
+        {# FOOTER #}
+    </div>
+
+    <script>
+        window.currencySymbol = "{# getCurrencySymbol() #}";
+        window.cartItems = @json(moltin()->getCart()->map->toArray());
+    </script>
+
+    {{ function('wp_footer') }}
+</body>
+</html>

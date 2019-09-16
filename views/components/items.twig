@@ -1,0 +1,30 @@
+<div class="items">
+    {% for item in items %}
+
+        {{ fn('timberSetProduct', item) }}
+
+        <div class="item">
+            <a class="item-inner" href="{{ item.link }}">
+                <div class="image-container">
+                    {% if item.thumbnail %}
+                        <img src="{{ item.thumbnail.src|resize(post_thumb_size[0], post_thumb_size[1]) }}" alt="{{ item.title }}">
+                    {% else %}
+                        <img src="{{ images.book }}" alt="{{ item.title }}">
+                    {% endif %}
+                </div>
+
+                <div class="item-info">
+                    <p class="item-title">{{ item.title }}</p>
+                    {# @if ($item->author)
+                        <p class="item-author">by {{ $item->author }}</p>
+                    @endif #}
+
+                    <div class="buy-bar">
+                        <p class="item-price">{{ wc_get_price_to_display() }}</p>
+                        <p class="button">View</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,28 @@
+.quantity-stepper {
+    @apply flex items-center;
+
+    &.--condensed {
+        button { @apply w-5 h-5 }
+        input { @apply w-6 h-6 }
+    }
+
+    button, input {
+        @apply appearance-none block border-none text-center rounded-full;
+
+        &:focus { @apply outline-none }
+    }
+
+    button {
+        @apply w-6 h-6 bg-brand-500 text-white leading-tight flex items-center justify-center;
+
+        &[disabled] { @apply bg-gray-300 text-gray-800 cursor-default }
+
+        i {
+            @apply text-base;
+        }
+    }
+
+    input {
+        @apply w-8 h-8 bg-gray-300 text-gray-800 mx-1;
+    }
+}

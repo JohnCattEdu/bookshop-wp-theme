@@ -1,0 +1,31 @@
+.filters {
+    @apply w-full flex flex-row;
+
+    .wrapper {
+        @apply flex flex-row items-center justify-center cursor-pointer px-2 py-1;
+        /* @apply border-solid border-b border-gray-800; */
+        @apply bg-gray-100 rounded shadow;
+        /* min-width: 6rem; */
+
+        &:not(:first-of-type) {
+            @apply ml-2;
+        }
+
+        span {
+            @apply pointer-events-none;
+        }
+
+        select, .value {
+            @apply appearance-none rounded-none bg-transparent -ml-6 pl-8 cursor-pointer h-full text-sm text-gray-900 w-full leading-none text-right;
+            text-align-last: right;
+
+            &:focus {
+                @apply outline-none;
+            }
+        }
+
+        .value {
+            @apply h-auto;
+        }
+    }
+}

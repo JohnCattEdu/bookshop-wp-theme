@@ -1,0 +1,70 @@
+.book-3d {
+    width: var(--width);
+    height: var(--height);
+
+    .book {
+        height: 100%;
+        width: 100%;
+        transform-style: preserve-3d;
+        position: relative;
+        transform: rotateX(-10deg) rotateY(-40deg);
+        transition: all .2s;
+
+        .front, .back, .spine, .pages {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            backface-visibility: visible;
+        }
+
+        .front, .back {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        .front {
+            background-image: var(--cover);
+            background-size: contain;
+            transform: translateZ(0);
+        }
+
+        .back {
+            background: #4e4e4e;
+            transform: translateZ(calc(var(--depth) * -1));
+            box-shadow: 0 5px 20px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .spine {
+            background: var(--spine-color);
+            width: var(--depth);
+            transform: rotateY(90deg);
+            transform-origin: left;
+        }
+
+        .pages {
+            background: linear-gradient(
+                90deg,
+                rgb(210, 210, 210) 0%,
+                white 100%
+            );
+
+            &.top {
+                height: var(--depth);
+                transform: rotateX(-90deg) scaleX(0.95) translateZ(calc(var(--height) * 0.025));
+                transform-origin: top left;
+            }
+
+            &.bottom {
+                height: var(--depth);
+                transform: rotateX(-90deg) scaleX(0.95) translateZ(calc(var(--height) * 0.975));
+                transform-origin: top left;
+            }
+
+            &.side {
+                transform: rotateY(90deg) scaleY(0.95) translateZ(calc(var(--width) * 0.95));
+                width: var(--depth);
+                transform-origin: left;
+            }
+        }
+    }
+}

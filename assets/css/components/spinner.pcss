@@ -1,0 +1,22 @@
+.spinner {
+    @apply w-8 h-8 rounded-full border-4 border-brand-500 mx-auto;
+    border-right-color: transparent !important;
+    animation: spin 1s infinite ease-in-out;
+
+    &.--spaced {
+        @apply my-8;
+    }
+
+    &.--white {
+        @apply border-gray-100;
+    }
+
+    &.--condensed {
+        @apply border-2 w-6 h-6;
+    }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}

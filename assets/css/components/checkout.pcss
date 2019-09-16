@@ -1,0 +1,101 @@
+.checkout {
+    .cards-container {
+        @apply flex -mx-2 items-start;
+
+        .card {
+            @apply mx-2;
+        }
+
+        .card.--items {
+            @apply w-3/4;
+
+            .cart-items {
+                @apply overflow-x-hidden;
+            }
+        }
+
+        .card.--subtotal {
+            @apply w-1/4 flex flex-col;
+
+            .label {
+                @apply text-base text-gray-600 font-bold;
+            }
+
+            .value {
+                @apply text-lg text-gray-900 font-bold leading-none mb-2;
+            }
+
+            .button {
+                @apply block bg-brand-500 text-gray-100 rounded p-2 text-center mt-2;
+            }
+        }
+    }
+
+    .section-title {
+        @apply text-2xl text-gray-900 mb-4;
+    }
+
+    .field {
+        @apply mb-2;
+
+        &.--required {
+            label:after {
+                content: '*';
+                @apply text-red-700;
+            }
+        }
+
+        label {
+            @apply .text-sm font-semibold text-gray-600;
+        }
+
+        input {
+            @apply .block .w-full .p-2 .rounded .bg-gray-100 .text-gray-800;
+            transition: all .1s;
+
+            &:focus {
+                @apply .outline-none;
+
+                & + button {
+                    @apply .text-gray-800;
+                }
+            }
+
+            &::placeholder {
+                @apply .text-gray-800;
+            }
+        }
+
+        .select-wrapper {
+            @apply w-full relative;
+
+            select {
+                @apply appearance-none p-2 pr-12 block w-full bg-gray-100 text-gray-800 rounded;
+
+                &:focus {
+                    @apply outline-none;
+                }
+            }
+
+            .icon-wrapper {
+                @apply absolute inset-y-0 right-0 w-10 flex items-center justify-center text-gray-800 pointer-events-none;
+            }
+        }
+
+        .error-message {
+            @apply text-red-600 text-sm;
+        }
+
+        .radio-wrapper {
+            @apply flex flex-col mt-4;
+
+            label {
+                @apply text-gray-800 flex flex-row items-center;
+
+                input {
+                    @apply w-auto mr-2;
+                }
+            }
+        }
+    }
+}

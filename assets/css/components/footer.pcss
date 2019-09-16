@@ -1,0 +1,47 @@
+.footer {
+    @apply w-full bg-gray-300 mt-auto;
+
+    .inner {
+        @apply w-full mx-auto p-4 flex flex-row flex-wrap justify-between;
+
+        section {
+            @apply w-full;
+
+            @screen md {
+                @apply w-1/4;
+            }
+
+            &:not(:first-of-type):not(:empty) {
+                @apply mt-8;
+
+                @screen md {
+                    @apply mt-0;
+                }
+            }
+
+            .heading {
+                @apply flex flex-row items-center mb-2;
+
+                p {
+                    @apply font-bold;
+                }
+            }
+
+            p {
+                @apply text-gray-900;
+            }
+
+            a {
+                @apply text-brand-500 font-semibold;
+
+                &:hover {
+                    @apply underline;
+                }
+            }
+
+            small {
+                @apply leading-tighter;
+            }
+        }
+    }
+}

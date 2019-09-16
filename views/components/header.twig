@@ -1,0 +1,55 @@
+<header class="header">
+    <div class="container">
+        <div class="inner">
+            <div class="hidden md:block">
+                <img src="{{ images.logo }}" alt="{{ site.name }}">
+            </div>
+
+            <div class="right">
+                <img
+                    src="{{ images.logoCondensed }}"
+                    alt="{{ site.name }}"
+                    class="block md:hidden"
+                />
+
+                <form action="{#{ route('search') }#}" class="search">
+                    <input
+                        type="text"
+                        placeholder="Search"
+                        name="q"
+                        required
+                        value="{{ query ?? '' }}"
+                    />
+
+                    <button type="submit">
+                        <i class="material-icons">search</i>
+                    </button>
+                </form>
+
+                <div class="actions">
+                    <shopping-cart />
+                </div>
+            </div>
+        </div>
+
+        {# @php
+            $menuItems = [
+                route('home') => 'Home',
+                '#' => 'All Titles',
+                route('category', 'guidebooks') => 'Guidebooks',
+            ];
+        @endphp #}
+        <nav>
+            {% for item in menu.items %}
+                <a href="{{ item.link() }}" class="{{ item.current ? '--active' : '' }}">
+                    {{ item.name() }}
+                </a>
+            {% endfor %}
+            {# @foreach ($menuItems as $link => $label)
+                <a href="{{ $link }}" class="{{ \Request::url() === $link ? '--active' : '' }}">
+                    {{ $label }}
+                </a>
+            @endforeach #}
+        </nav>
+    </div>
+</header>

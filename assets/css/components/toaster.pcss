@@ -1,0 +1,37 @@
+.toaster {
+    @apply z-50 fixed inset-x-0 bottom-0 pointer-events-none flex flex-col-reverse items-center;
+
+    .toast {
+        @apply p-2 bg-gray-900 text-gray-200 rounded w-64 shadow mb-2;
+
+        &.--appearing {
+            animation: toast-appear .2s forwards;
+        }
+
+        &.--disappearing {
+            animation: toast-disappear .2s forwards;
+        }
+    }
+}
+
+@keyframes toast-appear {
+    from {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes toast-disappear {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
